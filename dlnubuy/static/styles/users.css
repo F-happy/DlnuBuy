@@ -2,199 +2,369 @@
 /*CSS Document*/
 
 /*公用*/
-.comWidth{
-    width: 1000px; margin-left: 150px; margin-right: auto;
+.comWidth {
+    width: 1000px;
+    margin: 0 auto 0 150px;
 }
-.leftArea{
-    float: left;
-}
-.rightArea{
-    float: right;
-}
-body{
+body {
     font-family: "Microsoft YaHei", "微软雅黑";
-    background: url("../images/icon/bg.jpg") center 0 no-repeat;
-    background-color: #eeedeb;background-attachment: fixed;
+    background: url(../images/icon/bg.jpg) center 0 no-repeat;
+    background-color: #eeedeb;
+    background-attachment: fixed;
 }
 /*topBar*/
-.topBar{
-    height: 31px; background-color: #f7f7f7; line-height: 31px;
+.topBar {
+    height: 31px;
+    background-color: #f7f7f7;
+    line-height: 31px;
 }
-.collection{
-    background: url(../images/icon/collection.png) left center no-repeat; padding: 39px;
+.collection {
+    background: url(../images/icon/collection.png) left center no-repeat;
+    padding: 39px;
     font-weight: bold;
 }
-.topBar a:hover{
-    color: red;
+.topBar a:hover {
+    color: #FF0000;
 }
-
-.us-header{
-    height: 31px;background: #ff4401; padding: 12px 0; position: relative; z-index: 5;
-    border-bottom: 1px solid #e7e7e7; display: block;
+.us-header {
+    height: 31px;
+    background: #ff4401;
+    padding: 12px 0;
+    position: relative;
+    z-index: 5;
+    border-bottom: 1px solid #e7e7e7;
+    display: block;
 }
-.us-header-2{
-    height: 31px;background: #ff4401; padding: 12px 0; position: fixed; z-index: 5;
-    border-bottom: 1px solid #e7e7e7; display: none;top: 0px;width: 100%;
+.us-header-2 {
+    height: 31px;
+    background: #ff4401;
+    padding: 12px 0;
+    position: fixed;
+    z-index: 5;
+    border-bottom: 1px solid #e7e7e7;
+    display: none;
+    top: 0;
+    width: 100%;
 }
-.us-header-2 article,.us-header article{
-    margin: 0 auto; min-width: 860px;max-width: 1190px;display: block;
+.us-header-2 article,
+.us-header article {
+    margin: 0 auto;
+    min-width: 860px;
+    max-width: 1190px;
+    display: block;
 }
-.us-logo{
-    float: left; position: relative; overflow: hidden; width: 16%; height: 35px;
+.us-logo {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    width: 16%;
+    height: 35px;
 }
-.us-buylogo{
-    width: 140px;height: 36px; display: inline-block; vertical-align: middle;
-    font-size: 25px;color: #fff; font-weight: 800;
+.us-buylogo {
+    width: 140px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 800;
 }
-.us-nav{
-    float: right;width: 82.4%; display: block;
+.us-nav {
+    float: right;
+    width: 82.4%;
+    display: block;
 }
-.us-nav li{
-    position: relative; float: left; cursor: pointer; z-index: 1;height: 50px;
+.us-nav li {
+    position: relative;
+    float: left;
+    cursor: pointer;
+    z-index: 1;
+    height: 50px;
     font: 400 14px/36px "Microsoft YaHei", "微软雅黑";
 }
-.us-nav li a{
-    text-decoration: none;display: block;text-align: center; padding: 0 35px; color: #fff;
+.us-nav li a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 0 35px;
+    color: #fff;
     font-size: 18px;
 }
-
-.us-main{
-    max-width: 90%; margin: 0 auto; padding-bottom: 0; top: 88px;
+.us-main {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-bottom: 0;
+    top: 88px;
 }
-.us-panel{
-    margin-bottom: 10px;padding-bottom: 0; overflow: hidden;margin-top: 10px;
+.us-panel {
+    padding-bottom: 0;
+    overflow: hidden;
+    margin: 10px 0;
 }
-.col{
-    display: block; float: left;
+.col {
+    display: block;
+    float: left;
 }
-.span_5_1{
+.span_5_1 {
     width: 20%;
 }
-.ibx-cal,.ibx-uc,#ibx-user{
-    text-align: center; width: 100%; height: 284px; overflow: hidden;position: relative;
+.ibx-cal,
+.ibx-uc,
+#ibx-user {
+    text-align: center;
+    width: 100%;
+    height: 284px;
+    overflow: hidden;
+    position: relative;
 }
-.ibx-inner{
-    height: 225px; padding: 27px 0 0; border: 1px solid #ddd; border-right: none;
-    position: relative;background: #fff;
+.ibx-inner {
+    height: 225px;
+    padding: 27px 0 0;
+    border: 1px solid #ddd;
+    border-right: none;
+    position: relative;
+    background: #fff;
 }
-.ibx-uc-uimg{
-    padding-top: 13px; margin-bottom: 5px; height: 78px; position: relative;
+.ibx-uc-uimg {
+    padding-top: 13px;
+    margin-bottom: 5px;
+    height: 78px;
+    position: relative;
 }
-.ibx-uc-unick{
-    line-height: 24px; font-size: 16px;margin-bottom: 2px;
+.ibx-uc-unick {
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 2px;
 }
-.ibx-uc-utool{
-    color: #bcbcbc; font-size: 12px; width: 156px; height: 60px;margin: 8px auto 0;
-    border-top: solid 1px #e8e8e8; position: relative;
+.ibx-uc-utool {
+    color: #bcbcbc;
+    font-size: 12px;
+    width: 156px;
+    height: 60px;
+    margin: 8px auto 0;
+    border-top: solid 1px #e8e8e8;
+    position: relative;
 }
-.ibx-uc-utool-cover{
-    width: 156px; height: 2px;display: block;
+.ibx-uc-utool-cover {
+    width: 156px;
+    height: 2px;
+    display: block;
 }
-.ibx-uc-itool-phone{
-    font-size: 13px; padding: 5px 0;
+.ibx-uc-itool-phone {
+    font-size: 13px;
+    padding: 5px 0;
 }
-.ibx-uc-itool-school{
-    padding: 5px 0  ;
+.ibx-uc-itool-school {
+    padding: 5px 0;
 }
-.ibx-uc-itool-name{
-    padding: 5px 0; color: #000000; font-size: 15px;
+.ibx-uc-itool-name {
+    padding: 5px 0;
+    color: #000000;
+    font-size: 15px;
 }
-.span_5_4{
+.span_5_4 {
     width: 80%;
 }
-.ibx-inner{
-    padding: 0; overflow: hidden; height: 252px; border: 1px solid #ddd; background: #fff; position: relative;
+.ibx-inner {
+    padding: 0;
+    overflow: hidden;
+    height: 252px;
+    border: 1px solid #ddd;
+    background: #fff;
+    position: relative;
 }
-.ibx-cal-box{
-    padding: 20px 35px; height: 154px;
+.ibx-cal-box {
+    padding: 20px 35px;
+    height: 154px;
 }
-.ibx-cal-box-l{
-    width: 115px;float: left;text-align: center; margin-right: 38px;
+.ibx-cal-box-l {
+    width: 115px;
+    float: left;
+    text-align: center;
+    margin-right: 38px;
 }
-.ibx-weather-quality.level1{
+.ibx-weather-quality.level1 {
     background-color: #d6c60f;
 }
-.ibx-weather-quality.level3{
-    background-color: #FFFF00; color: #FF0000; font-weight: 900; font-size: 20px; width: 115px;
+.ibx-weather-quality.level3 {
+    background-color: #FFFF00;
+    color: #FF0000;
+    font-weight: 900;
+    font-size: 20px;
+    width: 115px;
 }
-.ibx-weather-quality.level2{
+.ibx-weather-quality.level2 {
     background-color: #dd1144;
 }
-.ibx-weather-quality{
-    font-size: 14px; color: #fff; height: 30px; line-height: 30px; margin-bottom: 5px;display: block;
-    text-decoration: none;cursor: pointer;
+.ibx-weather-quality {
+    font-size: 14px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
 }
-.ibx-location{
-    font-size: 14px; color: #fff; height: 30px; line-height: 30px;background-color: #1992fc;
-    margin-bottom: 5px;display: block;text-decoration: none; cursor: pointer;
+.ibx-location {
+    font-size: 14px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    background-color: #1992fc;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
 }
-.ibx-date{
-    font-size: 22px;line-height: 32px; color: #4b4b4b;
+.ibx-date {
+    font-size: 22px;
+    line-height: 32px;
+    color: #4b4b4b;
 }
-.ibx-lunar{
-    font-size: 14px;line-height: 24px;color: #4b4b4b;
+.ibx-lunar {
+    font-size: 14px;
+    line-height: 24px;
+    color: #4b4b4b;
 }
-.ibx-lunar .ibx-day{
+.ibx-lunar .ibx-day {
     margin-right: 15px;
 }
-.ibx-cal-box-r .ibx-cal-box-r2 .ibx-cal-box-r3{
-    margin-left: 152px; overflow: hidden; position: relative;
+.ibx-cal-box-r .ibx-cal-box-r2 .ibx-cal-box-r3 {
+    margin-left: 152px;
+    overflow: hidden;
+    position: relative;
 }
-.ibx-cal-img{
-    width: 150px; height: 152px; overflow: hidden; margin: 0 5px;
+.ibx-cal-img {
+    width: 150px;
+    height: 152px;
+    overflow: hidden;
+    margin: 0 5px;
 }
-.ibx-cal-img img{
-    width: 150px; height: 152px;overflow: hidden;
+.ibx-cal-img img {
+    width: 150px;
+    height: 152px;
+    overflow: hidden;
 }
-.ibx-cal-pay{
-    width: 190px; height:80px; overflow: hidden;margin: 0 5px;
+.ibx-cal-pay {
+    width: 190px;
+    height:80px;
+    overflow: hidden;
+    margin: 0 5px;
 }
-.ibx-cal-pay .money{
-    display: block; background: #d91615;width: 150px; height:30px; margin-left: 40px;
-    font-size: 20px;color: #fff; font-weight: 600;
+.ibx-cal-pay .money {
+    display: block;
+    background: #d91615;
+    width: 150px;
+    height:30px;
+    margin-left: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
 }
-.ibx-cal-pay .ibx-cal-name{
-    font-size: 10px; display: block; color: #000; background: #fff;width: 150px; height:30px;
-    margin-left: 40px;margin-top: 10px;text-align: left;line-height: 30px;overflow: hidden;
+.ibx-cal-pay .ibx-cal-name {
+    font-size: 10px;
+    display: block;
+    color: #000;
+    background: #fff;
+    width: 150px;
+    height:30px;
+    margin: 10px 0 0 40px;
+    text-align: left;
+    line-height: 30px;
+    overflow: hidden;
 }
-.ibx-cal-operate{
-    width: 190px; height:100px; overflow: hidden;margin: 0 5px;
+.ibx-cal-operate {
+    width: 190px;
+    height:100px;
+    overflow: hidden;
+    margin: 0 5px;
 }
-.ibx-cal-operate .delete{
-    display: block;background: #d91615; width: 80px; height: 20px;margin-left: 40px;font-size: 15px;
-    color: #fff; line-height: 20px; cursor: pointer;
+.ibx-cal-operate .delete {
+    display: block;
+    background: #d91615;
+    width: 80px;
+    height: 20px;
+    margin-left: 40px;
+    font-size: 15px;
+    color: #fff;
+    line-height: 20px;
+    cursor: pointer;
 }
-.succeed{
-    display: block;background: #003bb3; width: 80px; height: 20px;margin-left: 40px;font-size: 15px;
-    color: #fff; line-height: 20px; cursor: pointer;
+.succeed {
+    display: block;
+    background: #003bb3;
+    width: 80px;
+    height: 20px;
+    margin-left: 40px;
+    font-size: 15px;
+    color: #fff;
+    line-height: 20px;
+    cursor: pointer;
 }
-.ibx-cal-operate .ibx-cal-name{
-    font-size: 10px; display: block; color: #000; background: #fff;width: 150px; height:80px;
-    margin-left: 40px;margin-top: 10px;text-align: left;line-height: 30px;overflow: hidden;
+.ibx-cal-operate .ibx-cal-name {
+    font-size: 10px;
+    display: block;
+    color: #000;
+    background: #fff;
+    width: 150px;
+    height:80px;
+    margin: 10px 0 0 40px;
+    text-align: left;
+    line-height: 30px;
+    overflow: hidden;
 }
-.ibx-cal-ditem-addbtn{
-    display: block;color: #969696; font-size: 16px;text-decoration: none; text-align: center;
-    height: 130px;line-height: 130px; border: 10px dotted #808080
+.ibx-cal-ditem-addbtn {
+    display: block;
+    color: #969696;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    height: 130px;
+    line-height: 130px;
+    border: 10px dotted #808080
 }
-.imgtext{
-    margin: 10px 5px 5px; color: #ba0100;
+.imgtext {
+    margin: 10px 5px 5px;
+    color: #ba0100;
 }
-.baotext{
-    font-size: 10px; width: 150px; left: -10px; color:  #dd1144;
+.baotext {
+    font-size: 10px;
+    width: 150px;
+    left: -10px;
+    color:  #dd1144;
 }
-.baomoney{
-    background:#d91615; display: block; margin-left: 40px; font-size: 20px; color: #FFFFFF; font-weight: 600;
-    font-family: "Microsoft YaHei", "微软雅黑"; text-align: center; width: 150px;height: 30px;
+.baomoney {
+    background:#d91615;
+    display: block;
+    margin-left: 40px;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    text-align: center;
+    width: 150px;
+    height: 30px;
 }
-.baoname{
-    background: #1992fc;margin-left: 40px; font-size: 20px;color: #FFFFFF; font-weight: 600;
-    font-family: "Microsoft YaHei", "微软雅黑"; text-align: center; width: 150px;height: 30px;
-    margin-top: 10px;
+.baoname {
+    background: #1992fc;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    text-align: center;
+    width: 150px;
+    height: 30px;
+    margin: 10px 0 0 40px;
 }
-.buytext{
-    font-family: "Microsoft YaHei", "微软雅黑"; border: 1px solid #999999;width: 180px; height: 94px;
+.buytext {
+    font-family: "Microsoft YaHei", "微软雅黑";
+    border: 1px solid #999999;
+    width: 180px;
+    height: 94px;
     margin-left: 4px;
 }
-.classification{
-    position: absolute;margin-left: 160px;
+.classification {
+    position: absolute;
+    margin-left: 160px;
 }
