@@ -2,170 +2,229 @@
 /*CSS Document*/
 
 /*公用*/
-.comWidth{
-    width: 1000px; margin-left: auto; margin-right: auto;
-}
-.leftArea{
-    float: left;
-}
-.rightArea{
-    float: right;
+.comWidth {
+    width: 1000px;
+    margin: 0 auto;
 }
 
 /*loding*/
-.noresult{
+.noresult {
     border:1px solid #dbd7d6;
     text-align: center;
     font-size: 12px;
-    padding: 60px 0px;
+    padding: 60px 0;
     color: #999;
 }
-.blank15{
+.blank15 {
     display: block;
     width: 100%;
     height: 15px;
-    line-height: 0px;
-    font-size: 0px;
+    line-height: 0;
+    font-size: 0;
     clear: both;
     overflow: hidden;
 }
 
 /*topBar*/
-.topBar{
-    height: 31px; background-color: #f7f7f7; line-height: 31px;
+.topBar {
+    height: 31px;
+    background-color: #f7f7f7;
+    line-height: 31px;
 }
-.collection{
-    background: url(../images/icon/collection.png) left center no-repeat; padding: 39px;
+.collection {
+    background: url(../images/icon/collection.png) left center no-repeat;
+    padding: 39px;
     font-weight: bold;
 }
-.topBar a:hover{
-    color: red;
+.topBar a:hover {
+    color: #FF0000;
 }
 
 /*logoBar*/
-.logoBar{
-    height: 85px; background-color: #ffffff;
+.logoBar {
+    height: 85px;
+    background-color: #ffffff;
 }
-.logo{
-    padding-left: 41px; padding-top: 13px;
+.logo {
+    padding-left: 41px;
+    padding-top: 13px;
 }
 
 /*search*/
-.search_box{
-    width: 430px; border: 3px solid #f69; margin-top: 25px;margin-left: 150px;
+.search_box {
+    width: 430px;
+    border: 3px solid #f69;
+    margin-top: 25px;
+    margin-left: 150px;
 }
-.search_text{
-    width: 350px; height: 35px; padding:0px 5px; background-color: #f9f9f9; line-height: 35px\9;
+.search_text {
+    width: 350px;
+    height: 35px;
+    padding:0 5px;
+    background-color: #f9f9f9;
+    line-height: 35px\9;
 }
-.search_btn{
-    width: 70px; height: 35px; font-size: 14px; font-family: "Microsoft YaHei","微软雅黑";
-    background-color: #f69; color: #f7f7f7; cursor: pointer;
+.search_btn {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    background-color: #f69;
+    color: #f7f7f7;
+    cursor: pointer;
 }
-.shopCar{
-    width: 165px; height: 35px; background-color: #ffffff; margin-top: 23px;
-    font: 17px/15px "Microsoft YaHei", "微软雅黑"; color: #000; cursor: pointer;
+.shopCar {
+    width: 165px;
+    height: 35px;
+    background-color: #ffffff;
+    margin-top: 23px;
+    font: 17px/15px "Microsoft YaHei";
+    color: #000;
+    cursor: pointer;
     line-height: 40px;
 }
-.shopText{
-    height: 20px; width: 20px; border-right: #ffffff solid 1px;
-    background: url(../images/icon/global.png) no-repeat; text-indent: 40px;
-    background-position: 0 -161px; zoom: 2;
+.shopText {
+    height: 20px;
+    width: 20px;
+    border-right: #ffffff solid 1px;
+    background: url(../images/icon/global.png) no-repeat 0 -161px;
+    text-indent: 40px;
+    zoom: 2;
 }
-.shopNum{
-    width: 20px; height: 20px; background: url(../images/icon/global.png) no-repeat;
-    text-align: right; background-position: -33px -161px; zoom: 2; margin-left: 3px;
+.shopNum {
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon/global.png) no-repeat -33px -161px;
+    text-align: right;
+    zoom: 2;
+    margin-left: 3px;
 }
 
 /*顶部隐藏导航*/
-.topBox{
-    height: 50px; background-color: #ffffff; position: fixed; width: 2000px;
-    margin-left: auto; margin-right: auto; z-index: 30; top: 0px; display: none;
+.topBox {
+    height: 50px;
+    background-color: #ffffff;
+    position: fixed;
+    width: 2000px;
+    margin: 0 auto;
+    z-index: 30;
+    top: 0;
+    display: none;
 }
-.logomin{
-    padding-left: 50px; padding-top: 4px;
+.logomin {
+    padding-left: 50px;
+    padding-top: 4px;
 }
-.search_boxmin{
-    width: 700px; border: 3px solid #f69; margin-top: 4px;margin-left: 150px;
+.search_boxmin {
+    width: 700px;
+    border: 3px solid #f69;
+    margin-top: 4px;
+    margin-left: 150px;
 }
-.returnBox{
-    padding-top: 4px; position: absolute; left: 1150px;
+.returnBox {
+    padding-top: 4px;
+    position: absolute;
+    left: 1150px;
 }
 
 /*导航*/
-.navBox{
-    height: 36px; background-color: #f69; color: #ffffff;
+.navBox {
+    height: 36px;
+    background-color: #f69;
+    color: #ffffff;
 }
-.shopClass{
+.shopClass {
     width: 190px;
 }
-.shopClass h3{
+.shopClass h3 {
     text-align: center; line-height: 35px;
 }
-.nav, .shopClass{
-    font-family: "Microsoft YaHei","微软雅黑";
+.nav, .shopClass {
+    font-family: "Microsoft YaHei", "微软雅黑";
 }
-.nav{
+.nav {
     line-height: 35px;
 }
-.nav li{
+.nav li {
     float: left;
 }
-.nav a{
-    height: 35px; display: inline-block; padding: 0px 35px; color: #ffffff;
+.nav a {
+    height: 35px;
+    display: inline-block;
+    padding: 0 35px;
+    color: #ffffff;
 }
-.nav>li>a:hover{
+.nav>li>a:hover {
     background-color: #ebcccc;
 }
 
-/*商品弹出列表*/
-.shopclass_item{
-    padding: 14px 10px;
-}
-.shopclass_item .b{
-    font: 14px/1 "Microsoft YaHei", "微软雅黑";;
-}
-.shopclass_item dt{
-    height: 22px;
-}
-.shopClass_show{
-    background-color: #003bb3;
-}
-.shopClass_show a{
-    color: #fff;
-}
-
 /*右侧商品展示*/
-.banner{
-    width: 200px; height: 560px; position: absolute; z-index: 3; overflow: hidden; left: 1100px;
+.banner {
+    width: 200px;
+    height: 560px;
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+    left: 1100px;
 }
 
 /*轮播特效*/
-#container{
-    width: 1350px; height: 420px; overflow: hidden; position: relative; text-align: center;
+#container {
+    width: 1350px;
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
 }
-#list{
-    width: 14000px; height: 420px; position: absolute; z-index: 1;
+#list {
+    width: 14000px;
+    height: 420px;
+    position: absolute;
+    z-index: 1;
 }
-#list img{
-    float: left; text-align: center; background-position: center;
+#list img {
+    float: left;
+    text-align: center;
+    background-position: center;
 }
-#buttons{
-    position: absolute; height: 10px; width: 100px; z-index: 2; bottom: 20px; left: 640px;
+#buttons {
+    position: absolute;
+    height: 10px;
+    width: 100px;
+    z-index: 2;
+    bottom: 20px;
+    left: 640px;
 }
-#buttons span{
-    cursor: pointer; float: left; border: 1px solid #fff; width: 10px; height: 10px; border-radius: 50%;
-    background: #333; margin-right: 5px;
+#buttons span {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+    margin-right: 5px;
 }
 #buttons .on {
-    background: orangered;
+    background: #FF4500;
 }
-.arrow{
-    cursor: pointer; display: none; line-height: 39px; text-align: center; font-size: 36px;
-    font-weight: bold; width: 40px; height: 40px; position: absolute; z-index: 2; top: 180px;
-    background-color: RGBA(0,0,0,.3); color: #fff;
+.arrow {
+    cursor: pointer;
+    display: none;
+    line-height: 39px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    top: 180px;
+    background-color: RGBA(0, 0, 0, .3);
+    color: #fff;
 }
 .arrow:hover {
-    background-color: RGBA(0,0,0,.7);
+    background-color: RGBA(0, 0, 0, .7);
 }
 #container:hover .arrow {
     display: block;
@@ -178,148 +237,238 @@
 }
 
 /*左侧商品展示*/
-.sec_attr{
-    background: #ffffff; border: 1px solid #e6e6e6; float: left; height: 572px; width: 238px;
+.sec_attr {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    height: 572px;
+    width: 238px;
 }
-.sec_attr .list{
-    position: relative; border-bottom: 1px dotted #cccccc;
-    margin-left: 20px; margin-right: 20px;
+.sec_attr .list {
+    position: relative;
+    border-bottom: 1px dotted #cccccc;
+    margin-left: 20px;
+    margin-right: 20px;
 }
-.sec_attr .list_cont{
-    position: relative; z-index: 8; padding: 12px 0 6px;
+.sec_attr .list_cont {
+    position: relative;
+    z-index: 8;
+    padding: 12px 0 6px;
 }
-.sec_attr .list .nav_tle{
-    height: 18px; font-size: 16px;
+.sec_attr .list .nav_tle {
+    height: 18px;
+    font-size: 16px;
 }
-.sec_attr .list .nav_tle a{
-    color: #f69; float: left; margin-right: 10px;
+.sec_attr .list .nav_tle a {
+    color: #f69;
+    float: left;
+    margin-right: 10px;
 }
-.sec_attr .list p.listP{
-    height: 72px; line-height: 24px; white-space: nowrap; overflow: hidden; padding-top: 5px; width: 190px;
+.sec_attr .list p.listP {
+    height: 72px;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-top: 5px;
+    width: 190px;
 }
-p{
+p {
     display: block;
 }
-.red_f{
+.red_f {
     color: #f69;
 }
-.sec_attr .list p.listP a{
-    float: left; margin-right: 14px;
+.sec_attr .list p.listP a {
+    float: left;
+    margin-right: 14px;
 }
-.sec_attr .list .corner{
-    font-size: 14px; color: #999; position: absolute; right: -5px; top: 48px;
+.sec_attr .list .corner {
+    font-size: 14px;
+    color: #999;
+    position:absolute;
+    right: -5px;
+    top: 48px;
 }
-.nav_list{
+.nav_list {
     border: 1px solid #e6e6e6;
-    background: #fff; padding-left: 20px; width: 330px; z-index: 4; padding-bottom: 10px;
-    position: absolute; top: -1px; right: -352px;
+    background: #fff;
+    padding-left: 20px;
+    width: 330px;
+    z-index: 4;
+    padding-bottom: 10px;
+    position: absolute;
+    top: -1px;
+    right: -352px;
 }
-.sec_attr .active{
+.sec_attr .active {
     background: #fff;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
-    margin: 0px; padding-left: 20px; padding-top: -1px;
+    margin: 0;
+    padding-left: 20px;
+    padding-top: -1px;
 }
-.attr_box{
-    width: 240px; z-index: 10; height: 574px; position: absolute; left: 75px; top: 151px;
+.attr_box {
+    width: 240px;
+    z-index: 10;
+    height: 574px;
+    position: absolute;
+    left: 75px;
+    top: 151px;
 }
-.active{
-    background:#fff; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;
-    margin:0; padding-left:20px; margin-top:-1px
+.nav_list h4 {
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    padding-top: 12px;
 }
-.nav_list h4{
-    font-size: 14px; height: 20px; line-height: 20px; padding-top: 12px;
+.attr_box .sec_attr .active .list_cont {
+    margin-right: -1px;
+    border-right: 1px solid #ffffff;
 }
-.attr_box .sec_attr .active .list_cont{
-    margin-right: -1px; border-right: 1px solid #ffffff;
+.attr_box .sec_attr .nav_list p {
+    line-height: 24px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
 }
-.attr_box .sec_attr .nav_list p{
-    line-height: 24px; white-space: nowrap; width: 100%; overflow: hidden;
-}
-.attr_box .sec_attr .nav_list p a{
-    float: left; margin-right: 14px; line-height: 20px;
+.attr_box .sec_attr .nav_list p a {
+    float: left;
+    margin-right: 14px;
+    line-height: 20px;
 }
 
 /*轮播下面的图片*/
-.bnr_box{
-    height: 144px; width: 1050px; position: absolute; left: 320px; z-index: 1; top: 572px;
+.bnr_box {
+    height: 144px;
+    width: 1050px;
+    position: absolute;
+    left: 320px;
+    z-index: 1;
+    top: 572px;
 }
-.bnr_box .pic_attr{
-    float: left; overflow: hidden; height: 144px; width: 1000px; padding-left: 1px;
+.bnr_box .pic_attr {
+    float: left;
+    overflow: hidden;
+    height: 144px;
+    width: 1000px;
+    padding-left: 1px;
 }
-.bnr_box .pic_attr li{
-    float: left; padding: 9px;
+.bnr_box .pic_attr li {
+    float: left;
+    padding: 9px;
 }
 
 /*瀑布流布局*/
-#main{
-    position: relative; top: 180px; text-align: center; margin: 0 auto;
+#main {
+    position: relative;
+    top: 180px;
+    text-align: center;
+    margin: 0 auto;
 }
-.pin{
+.pin {
     padding: 15px 0 0 15px;
-    float:left; overflow: hidden;
+    float:left;
+    overflow: hidden;
 }
-.box{
+.box {
     padding: 10px;
     border:1px solid #ccc;
     box-shadow: 0 0 6px #ccc;
     border-radius: 5px;
 }
-.box img{
+.box img {
     width:226px;
-    height:auto; overflow: hidden;
+    height:auto;
+    overflow: hidden;
 }
 
 /*瀑布流展示页面*/
-.new_poster .t_idt{
-    margin-left: 42px; line-height: 20px; padding-top: 4px;
+.new_poster .t_idt {
+    margin-left: 42px;
+    line-height: 20px;
+    padding-top: 4px;
 }
-.clear_f{
-    clear: both; overflow: hidden; height: 0;
+.clear_f {
+    clear: both;
+    overflow: hidden;
+    height: 0;
 }
-.trans07{
-    border: 1px solid #ddd; opacity: .7;
+.trans07 {
+    border: 1px solid #ddd;
+    opacity: .7;
 }
-.avatar32_f{
-    width: 32px; height: 32px; float: left;
-}
-.new_poster .np_share{
-    border-top: 1px dotted #ccc; padding: 10px 0; margin: 10px 10px 0;
-}
-.new_poster .np_share{
-    color: #999; overflow: hidden;
-}
-.likes{
-    cursor: pointer; height: 22px; line-height: 22px;
-}
-.new_poster .comm_num{
-    line-height: 22px; position: relative; padding: 10px 10px 0;
-}
-.new_poster .comm_num:after{
-    clear: both; content: "."; display: block; visibility: hidden; height: 0;
-}
-.new_poster .title{
-    line-height: 20px; padding: 10px 10px 0;
-}
-.new_poster .np_pic{
-    text-align: center; width: 226px; position: relative;
-}
-.new_poster .price{
-    background: #fff; height: 18px; line-height: 18px; padding: 0 5px; position: absolute;
-    bottom: 0; right: 0; opacity: .8;
-}
-.new_poster .pic_load{
-    display: block; width: 100%;
-    background: url("../images/icon/loading.gif") no-repeat center;
-}
-.np_share img{
-    width: 32px; height: 32px;
-}
-.title p a{
+.avatar32_f {
+    width: 32px;
+    height: 32px;
     float: left;
 }
-.likes .likes_status{
-    background-color: #f69; color: #fff; float: left; text-align: center; margin-right: 6px;
-    height: 20px; line-height: 20px; width: 50px; border-radius: 2px; font-weight: normal;
+.new_poster .np_share {
+    border-top: 1px dotted #ccc;
+    padding: 10px 0;
+    margin: 10px 10px 0;
+}
+.new_poster .np_share {
+    color: #999;
+    overflow: hidden;
+}
+.likes {
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+}
+.new_poster .comm_num {
+    line-height: 22px;
+    position: relative;
+    padding: 10px 10px 0;
+}
+.new_poster .comm_num:after {
+    clear: both;
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+.new_poster .title {
+    line-height: 20px;
+    padding: 10px 10px 0;
+}
+.new_poster .np_pic {
+    text-align: center;
+    width: 226px;
+    position: relative;
+}
+.new_poster .price {
+    background: #fff;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: .8;
+}
+.new_poster .pic_load {
+    display: block;
+    width: 100%;
+    background: url(../images/icon/loading.gif) no-repeat center;
+}
+.np_share img {
+    width: 32px;
+    height: 32px;
+}
+.title p a {
+    float: left;
+}
+.likes .likes_status {
+    background-color: #f69;
+    color: #fff;
+    float: left;
+    text-align: center;
+    margin-right: 6px;
+    height: 20px;
+    line-height: 20px;
+    width: 50px;
+    border-radius: 2px;
+    font-weight: normal;
     border: 1px solid #fa5b90;
 }

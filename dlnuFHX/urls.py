@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     url(r'', include('dlnubuy.urls')),
 )
 
-static_dir = os.path.join(os.path.dirname(__file__))
+static_dir = os.path.join(os.path.dirname(__file__), '../dlnubuy/static')
 
 urlpatterns += patterns('',
          (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':static_dir}),

@@ -2,19 +2,23 @@
 from dlnubuy import models
 from django.template import Context
 from django.shortcuts import render_to_response
-import json,pdb
+from django.conf import settings
+import pdb
 from haystack.forms import SearchForm
-from search_indexes import ProductIndex
 
-# Create your views here.
+
+#在settings配置文件中取得静态文件版本号
+version = settings.STATIC_VERSION
 
 
 def index(request):
-    return render_to_response('index.html',)
+    c = Context({'version': version})
+    return render_to_response('index.html', c)
 
 
 def product_list(request):
-    return render_to_response('product_list.html')
+    c = Context({'version': version})
+    return render_to_response('product_list.html', c)
 
 
 def product(request):
@@ -39,29 +43,32 @@ def product(request):
         user['userphone'] = u.userphone
         user['school'] = u.schoolAddress
         template = 'product.html'
-        c = Context({'product': products, 'user': user, 'pdimg_list':pdimg_list})
+        c = Context({'product': products, 'user': user, 'pdimg_list':pdimg_list, 'version': version})
     except:
         template = 'index.html'
-        c = Context()
+        c = Context({'version': version})
     return render_to_response(template, c)
 
 
 def register(request):
-    return render_to_response('register.html')
+    c = Context({'version': version})
+    return render_to_response('register.html', c)
 
 
 def login(request):
-    return render_to_response('login.html')
+    c = Context({'version': version})
+    return render_to_response('login.html', c)
 
 
 def users(request):
-    return render_to_response('users.html')
+    c = Context({'version': version})
+    return render_to_response('users.html', c)
+
 
 # 全局搜索
 def full_search(request):
-    keywords = request.GET['q'].encode('utf-8')
     sform = SearchForm(request.GET)
     posts = sform.search()
     template = 'product_search_list.html'
-    c = Context({'posts': posts})
+    c = Context({'posts': posts, 'version': version})
     return render_to_response(template, c)
