@@ -65,6 +65,19 @@ def loginTag(request):
     return HttpResponse(json.dumps(rsdic))
 
 
+def logout(request):
+    rsdic = {}
+    user_id = int(request.POST['uid'])
+    r = rediscacheF.redisCache()
+    rdata = r.read_from_cache(user_id)
+    if rdata is not None:
+        r.del_from_cache(user_id)
+        rsdic['ret'] = 'outline'
+    else:
+        rsdic['ret'] = 'error'
+    return HttpResponse(json.dumps(rsdic))
+
+
 def addproduct(request):
     rsdic = {}
     baomoney = request.POST['productmoney']

@@ -3,22 +3,6 @@
  */
 $(function(){
 
-
-    //从cookie中取得用户名
-    var username = $.cookie('username');
-    var uid = $.cookie('userid');
-
-    if(username!=null && uid!=null){
-        $.post('ajax/loginTag',{
-            username:username,
-            uid:uid
-        },function(data){
-            if(data['ret']=='online'){
-                $('#loginTags').attr('href','users.html?id='+data['id']).text('['+data['username']+']');
-            }
-        },"json");
-    }
-
     YoNbuy();
 
     //监听滚动条

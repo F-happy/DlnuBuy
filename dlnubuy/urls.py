@@ -8,9 +8,9 @@ urlpatterns = patterns('dlnubuy.views',
        url(r'^product_list.html', "product_list"),
        url(r'^product.html', "product"),
        url(r'^register.html', "register"),
-       url(r'^login.html',"login"),
+       url(r'^login.html', "login"),
        url(r'^users.html', "users"),
-       url(r'^Product_Serach', "full_search")
+       url(r'^Product_Serach.html', "full_search")
 )
 
 urlpatterns += patterns('dlnubuy.ajax_views',
@@ -33,5 +33,6 @@ urlpatterns += patterns('dlnubuy.ajax_views',
        url(r'^add/proudctlike', 'proudctlike'),
        url(r'^ajax/productTime', 'productTime'),
        url(r'^ajax/buyproudect', 'buyproudect'),
-       url(r'^ajax/yes_or_no_buyproduct', 'YoNproudect')
+       url(r'^ajax/yes_or_no_buyproduct', 'YoNproudect'),
+       url(r'^ajax/logout', "logout")
 )

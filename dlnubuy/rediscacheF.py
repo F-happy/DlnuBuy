@@ -50,3 +50,7 @@ class redisCache(object):
             return True
         else:
             return False
+
+    def del_from_cache(self, user_id):
+        r = self.R
+        r.delete(str(user_id))

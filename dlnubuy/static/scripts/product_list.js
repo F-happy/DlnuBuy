@@ -3,23 +3,6 @@
  */
 $(function(){
 
-    //从cookie中取得用户名
-    var username = $.cookie('username');
-    var uid = $.cookie('userid');
-
-    if(username!=null && uid!=null){
-        $.post('ajax/loginTag',{
-            username:username,
-            uid:uid
-        },function(data){
-            if(data['ret']=='online'){
-                $('#loginTags').attr('href','users.html?id='+data['id']).text('['+data['username']+']');
-            }else{
-                loacation.href = 'login.html';
-            }
-        },"json");
-    }
-
     //根据下拉判断是否显示隐藏导航
     $(window).scroll(function(){
 
@@ -366,19 +349,5 @@ function bindClose(argument) {
         $('.nav-content').removeClass('sidebar-move-left');
         $('#sidebar').css('border-left','');
         $('.nav-content').addClass('sidebar-move-right');
-    });
-}
-
-function add_proudctlike() {
-    $('a[name=pdname]').click(function (event) {
-        var events = event.target.parentElement;
-        var pid = $(events).attr('pid');
-
-        $.post('add/proudctlike',{pid:pid},function (data) {
-            if(data.ret == 'success'){
-                $(events).children('span').text(data['num']);
-                $(events).children('b').css('background-color','#ccc');
-            }
-        }, 'json');
     });
 }

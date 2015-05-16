@@ -3,23 +3,6 @@
  */
 $(function(){
 
-    //从cookie中取得用户名
-    var username = $.cookie('username');
-    var uid = $.cookie('userid');
-
-    if(username!=null && uid!=null){
-        $.post('ajax/loginTag',{
-            username:username,
-            uid:uid
-        },function(data){
-            if(data['ret']=='online'){
-                $('#loginTags').attr('href','users.html?id='+data['id']).text('['+data['username']+']');
-            }else{
-                loacation.href = 'login.html';
-            }
-        },"json");
-    }
-
     //页面加载完成后开始首页的轮播
     lunbo();
 
@@ -247,19 +230,5 @@ function addpubuliu(data){
         $('<a>').attr('style', 'cursor: pointer;').text($(value).attr('user_name')).appendTo($(p2));
         $('<p>').addClass('t_idt').text($(value).attr('user_info')).appendTo($(share));
         $('<div>').addClass('clear_f').appendTo($(share));
-    });
-}
-
-function add_proudctlike() {
-    $('a[name=pdname]').click(function (event) {
-        var events = event.target.parentElement;
-        var pid = $(events).attr('pid');
-
-        $.post('add/proudctlike',{pid:pid},function (data) {
-            if(data.ret == 'success'){
-                $(events).children('span').text(data['num']);
-                $(events).children('b').css('background-color','#ccc');
-            }
-        }, 'json');
     });
 }

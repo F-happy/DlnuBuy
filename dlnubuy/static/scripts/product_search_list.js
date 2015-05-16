@@ -3,23 +3,6 @@
  */
 $(function(){
 
-    //从cookie中取得用户名
-    var username = $.cookie('username');
-    var uid = $.cookie('userid');
-
-    if(username!=null && uid!=null){
-        $.post('ajax/loginTag',{
-            username:username,
-            uid:uid
-        },function(data){
-            if(data['ret']=='online'){
-                $('#loginTags').attr('href','users.html?id='+data['id']).text('['+data['username']+']');
-            }else{
-                loacation.href = 'login.html';
-            }
-        },"json");
-    }
-
     waterfall();
     add_proudctlike();
 
@@ -78,19 +61,5 @@ function waterfall(){
             //数组 最小高元素的高 + 添加上的展示框[i]块框高
             hArr[minHIndex] += $boxs.eq(index).outerHeight();//更新添加了块框后的列高
         }
-    });
-}
-
-function add_proudctlike() {
-    $('a[name=pdname]').click(function (event) {
-        var events = event.target.parentElement;
-        var pid = $(events).attr('pid');
-
-        $.post('../add/proudctlike',{pid:pid},function (data) {
-            if(data.ret == 'success'){
-                $(events).children('span').text(data['num']);
-                $(events).children('b').css('background-color','#ccc');
-            }
-        }, 'json');
     });
 }

@@ -7,7 +7,7 @@ $(function(){
     var username = $.cookie('username');
     var uid = $.cookie('userid');
 
-    if (username==undefined) {
+    if (username=='null') {
         location.href = 'login.html';
     } else{
         $.post('ajax/loginTag', {uid: uid,username:username}, function (data) {
