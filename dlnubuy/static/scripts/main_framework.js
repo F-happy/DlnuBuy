@@ -57,3 +57,9 @@ function add_proudctlike() {
         }, 'json');
     });
 }
+
+//返回顶部的函数
+function retunTop(){
+    $('body,html').animate({scrollTop:0},1000);
+    return false;
+}

@@ -58,11 +58,6 @@ $(function(){
     Sidebar();
 });
 
-//返回顶部的函数
-function retunTop(){
-    $('body,html').animate({scrollTop:0},1000);
-    return false;
-}
 
 //动态添加瀑布图片的功能函数
 function waterfall(){

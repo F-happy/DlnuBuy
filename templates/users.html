@@ -3,18 +3,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>用户信息</title>
-    <link type="text/css" rel="stylesheet" href="static/styles/reset.{{version}}.css">
-    <link type="text/css" rel="stylesheet" href="static/styles/users.{{version}}.css">
-    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="static/scripts/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="static/scripts/additional-methods.min.js"></script>
-    <script type="text/javascript" src="static/scripts/messages_zh.min.js"></script>
-    <script type="text/javascript" src="static/scripts/jquery.form.js"></script>
-    <script type="text/javascript" src="static/scripts/String.js"></script>
-    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="static/scripts/ajaxfileupload.{{version}}.js"></script>
-    <script type="text/javascript" src="static/scripts/main_framework.{{version}}.js"></script>
-    <script type="text/javascript" src="static/scripts/users.{{version}}.js"></script>
+    {% for style_name in style_list %}
+        <link type="text/css" rel="stylesheet" href="{{style_name}}">
+    {% endfor %}
+    {% for script_name in script_list %}
+        <script type="text/javascript" src="{{script_name}}"></script>
+    {% endfor %}
 </head>
 <body>
 <div class="headerBar">

@@ -115,4 +115,4 @@ HAYSTACK_CONNECTIONS = {
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 #Static file version number
-STATIC_VERSION = 'v0514'
+STATIC_VERSION = 'v0518'

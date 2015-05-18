@@ -4,12 +4,12 @@
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>校园购</title>
-    <link type="text/css" rel="stylesheet" href="static/styles/reset.{{version}}.css">
-    <link type="text/css" rel="stylesheet" href="static/styles/index.{{version}}.css">
-    <script type="text/javascript" src="static/scripts/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="static/scripts/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="static/scripts/main_framework.{{version}}.js"></script>
-    <script type="text/javascript" src="static/scripts/index.{{version}}.js"></script>
+    {% for style_name in style_list %}
+        <link type="text/css" rel="stylesheet" href="{{style_name}}">
+    {% endfor %}
+    {% for script_name in script_list %}
+        <script type="text/javascript" src="{{script_name}}"></script>
+    {% endfor %}
 </head>
 <body>
 <div class="headerBar">

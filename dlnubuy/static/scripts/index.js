@@ -92,12 +92,6 @@ function checkscrollside(){
     return (lastBoxDis<scrollTop+documentH)?true:false;
 }
 
-//返回顶部的函数
-function retunTop(){
-    $('body,html').animate({scrollTop:0},1000);
-    return false;
-}
-
 //轮播函数
 function lunbo(){
     var container = $('#container');
