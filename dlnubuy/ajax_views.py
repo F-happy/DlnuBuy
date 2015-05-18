@@ -1,27 +1,25 @@
 #coding=utf-8
-from dlnubuy import models, encryptionF
+from dlnubuy import models, dlnu_utils
 from django.http import HttpResponse
 from django.conf import settings
 import json
 from django.utils import timezone
 import datetime
-from dlnubuy import rediscacheF
 import autoScript
 import pdb
 
 
 # Create your views here.
+# 注册函数还需要修改，目前没有注册时的验证功能
 def register(request):
     rsdic = {}
-
     mobile = request.POST[u'mobile']
     password = request.POST[u'password']
     nickname = request.POST[u'nickname']
     user = models.Users()
     user.userphone = mobile
     user.username = nickname
-    user.password = encryptionF.encrypt(15, password)
-
+    user.password = dlnu_utils.encrypt(password)
     try:
         user.save()
         rsdic['ret'] = 'success'
@@ -30,29 +28,28 @@ def register(request):
     return HttpResponse(json.dumps(rsdic))
 
 
+# 用户登录函数
 def loginuser(request):
     rsdic = {}
-    mlsUser = request.POST['mlsUser'].encode('utf-8')
-    password = request.POST['password'].encode('utf-8')
-    username = models.Users.objects.all().filter(password=encryptionF.encrypt(15, password), username=mlsUser)
-    if(username.count() != 0):
+    mlsUser = request.POST[u'mlsUser']
+    password = dlnu_utils.encrypt(request.POST[u'password'])
+    try:
+        username = models.Users.objects.get(password=password, username=mlsUser)
         rsdic['ret'] = 'success'
-        Uid = models.Users.objects.get(username=mlsUser).id
-        w = rediscacheF.redisCache()
-        w.write_to_cache(Uid)
+        Uid = username.id
+        dlnu_utils.write_to_cache(Uid)
         rsdic['id'] = Uid
-    else:
+    except:
         rsdic['ret'] = 'error'
     return HttpResponse(json.dumps(rsdic))
 
 
 def loginTag(request):
     rsdic = {}
-    user_id = int(request.POST['uid'])
+    user_id = int(request.POST[u'uid'])
     user = models.Users.objects.all().filter(id=user_id)
-    r = rediscacheF.redisCache()
-    rdata = r.read_from_cache(user_id)
-    if(rdata is not None):
+    rdata = dlnu_utils.read_from_cache(user_id)
+    if rdata is not None:
         rsdic['ret'] = 'online'
         for u in user:
             rsdic['phone'] = u.userphone
@@ -67,11 +64,10 @@ def loginTag(request):
 
 def logout(request):
     rsdic = {}
-    user_id = int(request.POST['uid'])
-    r = rediscacheF.redisCache()
-    rdata = r.read_from_cache(user_id)
+    user_id = int(request.POST[u'uid'])
+    rdata = dlnu_utils.read_from_cache(user_id)
     if rdata is not None:
-        r.del_from_cache(user_id)
+        dlnu_utils.del_from_cache(user_id)
         rsdic['ret'] = 'outline'
     else:
         rsdic['ret'] = 'error'
@@ -80,11 +76,11 @@ def logout(request):
 
 def addproduct(request):
     rsdic = {}
-    baomoney = request.POST['productmoney']
-    baoname = request.POST['productname']
-    buytext = request.POST['producttext']
-    user_id = request.POST['userid']
-    category = int(request.POST['productcf'])
+    baomoney = request.POST[u'productmoney']
+    baoname = request.POST[u'productname']
+    buytext = request.POST[u'producttext']
+    user_id = request.POST[u'userid']
+    category = int(request.POST[u'productcf'])
     files = request.FILES.getlist('img')
     i = 0
     fads = []
@@ -123,14 +119,14 @@ def addproduct(request):
 
 def modifyPassword(request):
     rsdic = {}
-    uid = int(request.POST['uid'])
-    oldpassword = request.POST['oldp'].encode('utf-8')
-    newpassword = request.POST['newp'].encode('utf-8')
+    uid = int(request.POST[u'uid'])
+    oldpassword = request.POST[u'oldp']
+    newpassword = request.POST[u'newp']
     try:
         user = models.Users.objects.get(id=uid)
-        password = encryptionF.decrypt(15, user.password)
+        password = dlnu_utils.decrypt(user.password)
         if(oldpassword == password):
-            user.password = encryptionF.encrypt(15, newpassword)
+            user.password = dlnu_utils.encrypt(newpassword)
             user.save()
             rsdic['ret'] = 'success'
         else:
@@ -142,8 +138,8 @@ def modifyPassword(request):
 
 def modifyPhone(request):
     rsdic = {}
-    uid = int(request.POST['uid'])
-    uphone = request.POST['newphone'].encode('utf-8')
+    uid = int(request.POST[u'uid'])
+    uphone = request.POST[u'newphone']
     try:
         user = models.Users.objects.get(id=uid)
         user.userphone = uphone
@@ -156,8 +152,8 @@ def modifyPhone(request):
 
 def modifyuserinfo(request):
     rsdic = {}
-    uid = int(request.POST['uid'])
-    uschool = request.POST['news'].encode('utf-8')
+    uid = int(request.POST[u'uid'])
+    uschool = request.POST[u'news']
     img = request.FILES['newuserimg']
     import re
     pattern1 = re.compile(r'开发区')
@@ -166,7 +162,7 @@ def modifyuserinfo(request):
         newschooladd = '开发区校区'
     else:
         newschooladd = '金石滩校区'
-    userimgadd = write_to_infoimg(img, request.POST['uid'].encode('utf-8'), 'user')
+    userimgadd = write_to_infoimg(img, request.POST[u'uid'], 'user')
     try:
         usernew = models.Users.objects.get(id=uid)
         usernew.userimg = userimgadd
@@ -180,11 +176,10 @@ def modifyuserinfo(request):
 
 # 取得宝贝分类的方法
 def getClassification(request):
-
     rsdic = {}
     try:
-        parent = int(request.POST['parent'])
-        level = int(request.POST['level'])
+        parent = int(request.POST[u'parent'])
+        level = int(request.POST[u'level'])
         cfobjs = models.Classification.objects.all().filter(parent=parent, level=level)
         cf = []
         for cfobj in cfobjs:
@@ -480,8 +475,7 @@ def YoNproudect(request):
             else:
                 rsdic['buyproduct'] = 'x'
         else:
-            r = rediscacheF.redisCache()
-            t = r.read_from_product(pid)
+            t = dlnu_utils.read_from_product(pid)
             if t is True:
                 rsdic['buyproduct'] = 'no2'
             else:

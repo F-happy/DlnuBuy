@@ -28,3 +28,6 @@ def redis_create():
     # 在这里开启多线程来启动redis服务器
     thread = threading.Thread(target=redis_start)
     thread.start()
+
+if __name__ == "__main__":
+    redis_create()
