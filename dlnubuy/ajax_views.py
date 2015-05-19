@@ -1,5 +1,6 @@
 #coding=utf-8
-from dlnubuy import models, dlnu_utils
+from dlnubuy import dlnu_utils
+from dlnubuy.models import *
 from django.http import HttpResponse
 from django.conf import settings
 import json
@@ -16,7 +17,7 @@ def register(request):
     mobile = request.POST[u'mobile']
     password = request.POST[u'password']
     nickname = request.POST[u'nickname']
-    user = models.Users()
+    user = Users()
     user.userphone = mobile
     user.username = nickname
     user.password = dlnu_utils.encrypt(password)
@@ -34,7 +35,7 @@ def loginuser(request):
     mlsUser = request.POST[u'mlsUser']
     password = dlnu_utils.encrypt(request.POST[u'password'])
     try:
-        username = models.Users.objects.get(password=password, username=mlsUser)
+        username = Users.objects.get(password=password, username=mlsUser)
         rsdic['ret'] = 'success'
         Uid = username.id
         dlnu_utils.write_to_cache(Uid)
@@ -47,7 +48,7 @@ def loginuser(request):
 def loginTag(request):
     rsdic = {}
     user_id = int(request.POST[u'uid'])
-    user = models.Users.objects.all().filter(id=user_id)
+    user = Users.objects.all().filter(id=user_id)
     rdata = dlnu_utils.read_from_cache(user_id)
     if rdata is not None:
         rsdic['ret'] = 'online'
@@ -90,7 +91,7 @@ def addproduct(request):
         fads.append(fad)
         i += 1
     try:
-        products = models.Product()
+        products = Product()
         if len(fads) < 4:
             fads.append('0')
         products.pdimg = fads[0]
@@ -123,7 +124,7 @@ def modifyPassword(request):
     oldpassword = request.POST[u'oldp']
     newpassword = request.POST[u'newp']
     try:
-        user = models.Users.objects.get(id=uid)
+        user = Users.objects.get(id=uid)
         password = dlnu_utils.decrypt(user.password)
         if(oldpassword == password):
             user.password = dlnu_utils.encrypt(newpassword)
@@ -141,7 +142,7 @@ def modifyPhone(request):
     uid = int(request.POST[u'uid'])
     uphone = request.POST[u'newphone']
     try:
-        user = models.Users.objects.get(id=uid)
+        user = Users.objects.get(id=uid)
         user.userphone = uphone
         user.save()
         rsdic['ret'] = 'success'
@@ -164,7 +165,7 @@ def modifyuserinfo(request):
         newschooladd = '金石滩校区'
     userimgadd = write_to_infoimg(img, request.POST[u'uid'], 'user')
     try:
-        usernew = models.Users.objects.get(id=uid)
+        usernew = Users.objects.get(id=uid)
         usernew.userimg = userimgadd
         usernew.schoolAddress = newschooladd
         usernew.save()
@@ -180,7 +181,7 @@ def getClassification(request):
     try:
         parent = int(request.POST[u'parent'])
         level = int(request.POST[u'level'])
-        cfobjs = models.Classification.objects.all().filter(parent=parent, level=level)
+        cfobjs = Classification.objects.all().filter(parent=parent, level=level)
         cf = []
         for cfobj in cfobjs:
             temp = []
@@ -214,7 +215,7 @@ def get_user_buyinfo(request):
     rsdic = {}
     uid = int(request.POST['uid'])
     try:
-        models.Product.objects.all().filter(userid=uid)
+        Product.objects.all().filter(userid=uid)
         rsdic['ret'] = 'have'
     except:
         rsdic['ret'] = 'no'
@@ -224,8 +225,8 @@ def get_user_buyinfo(request):
 def get_buyinfo(request):
     rsdic = {}
     uid = request.POST['uid']
-    buyinfos = models.Product.objects.all().filter(userid=uid)
-    users = models.Users.objects.get(id=uid)
+    buyinfos = Product.objects.all().filter(userid=uid)
+    users = Users.objects.get(id=uid)
     try:
         arry = []
         for buyinfo in buyinfos:
@@ -234,7 +235,7 @@ def get_buyinfo(request):
             data['buyname'] = users.username
             data['buyphone'] = users.userphone
             data['buyschool'] = users.schoolAddress
-            status = models.Buy.objects.filter(pdid=int(buyinfo.id))
+            status = Buy.objects.filter(pdid=int(buyinfo.id))
             if status.count() == 0:
                 continue
             else:
@@ -263,8 +264,8 @@ def delete_buy_info(request):
     rsdic = {}
     pdid = int(request.POST['pdid'])
     try:
-        models.Product.objects.get(id=pdid).delete()
-        models.Buy.objects.get(pdid=pdid).delete()
+        Product.objects.get(id=pdid).delete()
+        Buy.objects.get(pdid=pdid).delete()
         autoScript.update_index()
         rsdic['ret'] = 'success'
         rsdic['pdid'] = pdid
@@ -278,7 +279,7 @@ def get_Allbuyinfo(request):
 
     cate = request.POST['cate'][:2]
     try:
-        products = models.Product.objects.filter(category__startswith=cate)
+        products = Product.objects.filter(category__startswith=cate)
         arry = []
         for product in products:
             data = {}
@@ -286,13 +287,13 @@ def get_Allbuyinfo(request):
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
             try:
-                volume = models.Buy.objects.get(pdid=product.id)
+                volume = Buy.objects.get(pdid=product.id)
                 data['volume'] = int(volume.transaction_status)
             except:
                 continue
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
-            user = models.Users.objects.get(id=product.userid)
+            user = Users.objects.get(id=product.userid)
             data['user_img'] = str(user.userimg)
             data['user_name'] = user.username
             data['user_info'] = product.requirement
@@ -312,7 +313,7 @@ def get_user_info_plan(request):
     rsdic = {}
     uid = request.POST['uid']
     try:
-        users = models.Users.objects.get(id=uid)
+        users = Users.objects.get(id=uid)
         rsdic['username'] = users.username
         rsdic['userphone'] = users.userphone
         rsdic['schoolAddress'] = users.schoolAddress
@@ -327,7 +328,7 @@ def get_user_asset_plan(request):
     rsdic = {}
     uid = request.POST['uid']
     try:
-        products = models.Product.objects.all().filter(userid=uid)
+        products = Product.objects.all().filter(userid=uid)
         arry = []
         for product in products:
             data = {}
@@ -350,7 +351,7 @@ def get_user_brand_plan(request):
     rsdic = {}
     cate = request.POST['cate'][:2]
     try:
-        cates = models.Classification.objects.filter(CFnumber__startswith=cate, level__lte=3)
+        cates = Classification.objects.filter(CFnumber__startswith=cate, level__lte=3)
         arry = []
         for cate in cates:
             data = {}
@@ -368,7 +369,7 @@ def proudctlike(request):
     rsdic = {}
     pid = request.POST['pid']
     try:
-        product = models.Product.objects.get(id=pid)
+        product = Product.objects.get(id=pid)
         product.likes = product.likes + 1
         product.save()
         rsdic['num'] = product.likes
@@ -382,7 +383,7 @@ def productTime(request):
     rsdic = {}
     pid = request.POST['pid']
     try:
-        pdtime = models.Buy.objects.get(pdid=pid)
+        pdtime = Buy.objects.get(pdid=pid)
         if pdtime.transaction_status == '1':
             time7 = pdtime.buytime + datetime.timedelta(hours=12)
             rsdic['tratus'] = '1'
@@ -412,7 +413,7 @@ def get_Allbuyinfos(request):
     rsdic = {}
     try:
         newmonth = timezone.now() - datetime.timedelta(days=30)
-        products = models.Product.objects.filter(begintime__gte=newmonth).order_by('begintime')
+        products = Product.objects.filter(begintime__gte=newmonth).order_by('begintime')
         arry = []
         for product in products:
             data = {}
@@ -420,13 +421,13 @@ def get_Allbuyinfos(request):
             data['money'] = '￥' + str(product.money)
             data['title'] = product.description
             try:
-                volume = models.Buy.objects.get(pdid=product.id)
+                volume = Buy.objects.get(pdid=product.id)
                 data['volume'] = int(volume.transaction_status)
             except:
                 continue
             data['span'] = int(product.likes)
             data['pic_load'] = '#'
-            user = models.Users.objects.get(id=product.userid)
+            user = Users.objects.get(id=product.userid)
             data['user_img'] = str(user.userimg)
             data['user_name'] = user.username
             data['user_info'] = product.requirement
@@ -447,7 +448,7 @@ def buyproudect(request):
     pid = request.POST['pid']
     uid = request.POST['uid']
     try:
-        product = models.Buy.objects.get(pdid=pid)
+        product = Buy.objects.get(pdid=pid)
         if product.transaction_status == '0':
             product.transaction_status = 1
             time = timezone.now()
@@ -466,11 +467,11 @@ def YoNproudect(request):
     rsdic = {}
     pid = request.POST['pid']
     try:
-        buyproduct = models.Buy.objects.get(pdid=pid)
+        buyproduct = Buy.objects.get(pdid=pid)
         if buyproduct.transaction_status == '0':
             time = (buyproduct.buytime - timezone.now()).total_seconds()
             if abs(time) > 604800:
-                models.Buy.objects.get(pdid=pid).delete()
+                Buy.objects.get(pdid=pid).delete()
                 rsdic['buyproduct'] = 'no'
             else:
                 rsdic['buyproduct'] = 'x'
@@ -480,7 +481,7 @@ def YoNproudect(request):
                 rsdic['buyproduct'] = 'no2'
             else:
                 rsdic['buyproduct'] = 'yes'
-                models.Buy.objects.get(pdid=pid).delete()
+                Buy.objects.get(pdid=pid).delete()
         rsdic['ret'] = 'success'
     except:
         rsdic['ret'] = 'success'

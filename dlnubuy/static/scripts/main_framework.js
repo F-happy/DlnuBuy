@@ -11,14 +11,14 @@ $(function(){
     var username = cookie.username;
     var uid = cookie.userid;
 
-    if(username!='null' && uid!='null'){
+    if(username != undefined && uid != undefined && username != "null" && uid != "null"){
         $.post('../ajax/loginTag',{
             username:username,
             uid:uid
         },function(data){
             if(data['ret']=='online'){
                 $('#loginTags').attr('href','../users.html?id='+data['id']).text('['+data['username']+']');
-                $('#loginTags').next().attr('href','javascript:logout()').text('[退出登录]');
+                $('#loginTags').next().attr('href','javascript:logout()').text(' [退出登录]');
             }else{
                 window.location.href = '../login.html';
             }
