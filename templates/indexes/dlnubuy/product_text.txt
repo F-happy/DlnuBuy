@@ -1,2 +1,0 @@
-<h2>{{ object.pdname }}</h2>
-<p>{{ object.description}}</p>

@@ -7,7 +7,7 @@ from haystack.forms import SearchForm
 import pdb
 
 
-#在settings配置文件中取得静态文件版本号
+# 在settings配置文件中取得静态文件版本号
 VERSION = settings.STATIC_VERSION
 
 # 公共的样式文件

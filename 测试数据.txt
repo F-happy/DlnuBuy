@@ -1,0 +1,48 @@
+//加载测试的数据
+    var dataInt={
+        'data':[
+            {'src':'warp_030_226.jpg',
+                'money':'￥155.00',
+                'pic_load':'#','title':'这个是新添加的测试','title_href':'#','volume':0,'span':'666',
+                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试',
+                'user_info':'         分享了一个宝贝      ',
+                'user_href':'#','user_id':'110'},
+            {'src':'warp_020_226.jpg',
+                'money':'￥355.00',
+                'pic_load':'#','title':'这个是新添加的测试2','title_href':'#','volume':0,'span':'666',
+                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试2',
+                'user_info':'         分享了一个宝贝       ',
+                'user_href':'#','user_id':'110'},
+            {'src':'warp_044_226.jpg',
+                'money':'￥455.00',
+                'pic_load':'#','title':'这个是新添加的测试3','title_href':'#','volume':0,'span':'666',
+                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试3',
+                'user_info':'         分享了一个宝贝       ',
+                'user_href':'#','user_id':'110'},
+            {'src':'warp_027_226.jpg',
+                'money':'￥151.00',
+                'pic_load':'#','title':'这个是新添加的测试4','title_href':'#','volume':0,'span':'666',
+                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试4',
+                'user_info':'         分享了一个宝贝       ',
+                'user_href':'#','user_id':'110'},
+            {'src':'warp_087_226.jpg',
+                'money':'￥155.00',
+                'pic_load':'#','title':'这个是新添加的测试5','title_href':'#','volume':0,'span':'666',
+                'user_img':'images/icon/collection.png','user_name':'我的名字叫做测试5',
+                'user_info':'         分享了一个宝贝       ',
+                'user_href':'#','user_id':'110'}
+        ]};
+
+    //加载测试的数据
+    var data = {
+        'data':[
+            {'buyphoto':'user.jpg',
+                'buyname':'fuhuixiang',
+                'buyphone':'18888888',
+                'buyschool':'金石滩校区',
+                'buylevel':0,'buyschooling':'开发区校区','succeedtime':'剩余1小时',
+                'begintime':'14-4-2','pdimg':'static/images/warp/warp_002_226.jpg',
+                'pdimg2':'static/images/warp/warp_002_226.jpg','pdimg3':'static/images/warp/warp_002_226.jpg',
+                'money':'33.00','pdname':'快学Scala','eval':1,'message':'宝贝很好哦','pdid':'43'}
+        ]
+    };
